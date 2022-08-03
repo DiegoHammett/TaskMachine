@@ -1,10 +1,10 @@
 import React from "react";
 
-function TaskList(props){
+function TaskList({children}){
     return(
         <section>
             <ul>
-                {props.children}
+                {children}
             </ul>
         </section>
     );
