@@ -1,11 +1,9 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const TaskContext = React.createContext();
+function useTasks(){
 
-function TaskProvider(props){
-
-    const {item:tasks,saveItem:saveTasks,loading,error} = useLocalStorage('Tasks_v1',[]);
+    const {item:tasks,saveItem:saveTasks,loading,error,sincronize:sincronizeTasks} = useLocalStorage('Tasks_v1',[]);
 
     const [searchValue,setSearchValue] = React.useState('');
 
@@ -47,7 +45,7 @@ function TaskProvider(props){
     };
 
     return(
-        <TaskContext.Provider value={{
+        {
             loading,
             error,
             completedTasks,
@@ -59,11 +57,10 @@ function TaskProvider(props){
             deleteTasks,
             addTask,
             openModal,
-            setOpenModal
-        }}>
-            {props.children}
-        </TaskContext.Provider>
+            setOpenModal,
+            sincronizeTasks
+        }
     );
 }
 
-export {TaskContext,TaskProvider}
+export {useTasks};

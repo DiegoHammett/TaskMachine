@@ -1,11 +1,8 @@
 import React from "react";
-import { TaskContext } from "../TaskContext";
 
-function TaskForm(){
+function TaskForm({addTask,setOpenModal}){
 
     const [newTask,setNewTask] = React.useState('');
-    const {addTask} = React.useContext(TaskContext);
-    const {setOpenModal} = React.useContext(TaskContext);
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -21,8 +18,14 @@ function TaskForm(){
         setNewTask(event.target.value);
     };
 
+    const onKeyDown = (event) => {
+        if(event.code === 'Escape'){
+            alert('ESCAPE');
+        }
+    };
+
     return(
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} onKeyDown={onKeyDown}>
             <label>Add a new task</label>
             <textarea value={newTask} onChange={onChange}>
             </textarea>

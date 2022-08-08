@@ -5,19 +5,27 @@
     padding: 48px;
 }
 
+.TaskCounter--loading{
+  opacity: 20%;
+}
+
 .TaskSearch {
-  background: #F9FBFC;
-  border-radius: 10px;
-  border: 2px solid #202329;
-  margin: 0 24px 0 35%;
-  height: 64px;
-  width: 30%;
-  font-size: 24px;
-  text-align: center;
-  font-family: 'Century Gothic';
-  font-weight: 400;
-  color: #1E1E1F;
-  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+    background: #F9FBFC;
+    border-radius: 10px;
+    border: 2px solid #202329;
+    margin: 0 24px 0 35%;
+    height: 64px;
+    width: 30%;
+    font-size:large;
+    text-align: center;
+    font-family: 'Century Gothic';
+    font-weight: 400;
+    color: #1E1E1F;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+  }
+
+  .TaskSearch:disabled{
+    opacity: 20%;
   }
   
   .TaskSearch::placeholder {
@@ -52,6 +60,8 @@
     margin: 24px 0 24px 24px;
     width: calc(100% - 120px);
     font-size: 20px;
+    height: fit-content;
+    text-align: center;
     line-height: 24px;
     font-weight: 400;
   }
@@ -104,24 +114,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 64px;
-    width: 64px;
-  
+    height: 70px;
+    width: 70px;
     transform: rotate(0);
-    transition: .3s ease;
+    transition: .4s ease;
     z-index: 1;
   }
   
   .TaskButton:hover {
     transform: rotate(224deg);
   }
-
+  
   body {
     margin: 0;
     padding: 0;
     background: #F2F4F5;
     color: #1E1E1F;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-family: 'Century Gothic';
   }
   
   #root {
@@ -197,7 +206,7 @@
     height: 48px;
     border-radius: 2px;
     border: none;
-    font-family: 'Arial';
+    font-family: 'Century Gothic';
   }
   
   .TodoForm-button--add {
@@ -208,4 +217,45 @@
   .TodoForm-button--cancel {
     box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
     background: transparent;
+  }
+
+  .LoadingLabel{
+    text-align: center;
+    font-size: 24px;
+    font-style: italic;
+    font-family: 'Century Gothic';
+  }
+
+  .ChangeAlert{
+    background-color: #000000da;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+    box-shadow: 0px 5px 50px rgba(208, 214, 226, 0.76);
+  }
+
+  .ChangeAlertBackground{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #00000086;
+    z-index: 2;
+  }
+
+  .RefreshButton{
+    background-color: white;
+    font-family: 'Century Gothic';
+    box-shadow: 0px 5px 50px rgba(5, 202, 202, 0.897);
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: 2px solid #ffffff;
   }

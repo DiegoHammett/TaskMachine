@@ -1,12 +1,9 @@
 import React from "react";
-import { TaskContext } from "../TaskContext";
 
-function TaskCounter(){
-
-    const {totalTasks,completedTasks} = React.useContext(TaskContext);
+function TaskCounter({totalTasks,completedTasks,loading}){
 
     return(
-        <h2 className="TaskCounter">Tasks completed: {completedTasks}/{totalTasks}</h2>
+        <h2 className={`TaskCounter ${!!loading && "TaskCounter--loading"}`}>Tasks completed: {completedTasks}/{totalTasks}</h2>
     );
 }
 export {TaskCounter};

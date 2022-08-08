@@ -1,9 +1,6 @@
 import React from "react";
-import { TaskContext } from "../TaskContext";
 
-function TaskSearch(){
-
-    const {searchValue,setSearchValue} = React.useContext(TaskContext);
+function TaskSearch({searchValue,setSearchValue,loading}){
     
     const onSearchValueChange = (event) => {
         setSearchValue(event.target.value);
@@ -12,9 +9,10 @@ function TaskSearch(){
     return(
         <input 
             placeholder="Search Tasks" 
-            className="TaskSearch"
+            className="TaskSearch" 
             value={searchValue}
-            onChange={onSearchValueChange}    
+            onChange={onSearchValueChange}
+            disabled={loading}    
         ></input>
     );
 }
