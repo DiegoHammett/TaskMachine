@@ -3,7 +3,7 @@ import { useLocalStorage } from "./useLocalStorage";
 
 function useTasks(){
 
-    const {item:tasks,saveItem:saveTasks,loading,error,sincronize:sincronizeTasks} = useLocalStorage('Tasks_v1',[]);
+    const {item:tasks,saveItem:saveTasks,loading,error,sincronize:sincronizeTasks} = useLocalStorage('Tasks_v1',['']);
 
     const [searchValue,setSearchValue] = React.useState('');
 
